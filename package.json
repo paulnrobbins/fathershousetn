@@ -1,0 +1,38 @@
+{
+  "name": "fathers-house-tn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Our Father's House — Christ-centered recovery home for men in Rhea County, TN. Immersive 3D site.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "@react-three/drei": "^10.0.1",
+    "three": "^0.171.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.1",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "@types/three": "^0.171.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.6"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

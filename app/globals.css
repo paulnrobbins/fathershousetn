@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ════════════════════════════════════════════════════════════════════
+ * THRESHOLD CINEMA — Design Tokens
+ * Father's House TN. Phase 1 brief at /mnt/user-data/outputs/fathers-house-tn-brief.md
+ *
+ * Color palette is intentionally minimal: 4 named colors + a brass
+ * constant that survives both halves of the journey. Theme switching
+ * happens via `<body data-theme="cold|warm|bridge">` — set by the
+ * ThemeApplier component on route change. The home page (Phase 3) will
+ * also drive --brass-intensity from scroll progress.
+ * ══════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* ─── Brand colors (RGB triples for Tailwind <alpha-value>) ─── */
+    --steel: 14 15 18;          /* #0E0F12  cold steel near-black */
+    --parchment: 245 239 230;   /* #F5EFE6  warm parchment off-white */
+    --brass: 201 165 91;        /* #C9A55B  brass — the constant */
+    --bronze: 46 42 38;         /* #2E2A26  dark bronze */
+
+    /* ─── Semantic tokens (overridden by [data-theme]) ─── */
+    --bg: var(--steel);
+    --fg: var(--parchment);
+    --accent: var(--brass);
+
+    /* ─── Derived tokens (foreground at varied alpha) ─── */
+    --fg-muted: rgb(var(--fg) / 0.68);
+    --fg-quiet: rgb(var(--fg) / 0.42);
+    --rule: rgb(var(--fg) / 0.12);
+    --rule-strong: rgb(var(--fg) / 0.22);
+
+    /* ─── Z-index scale ─── */
+    --z-canvas: 0;
+    --z-grain: 1;
+    --z-content: 10;
+    --z-nav: 100;
+    --z-overlay: 150;
+    --z-cursor: 1000;
+
+    /* ─── Spacing — fluid gutter ─── */
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+
+    /* ─── Atmosphere ─── */
+    --grain-opacity: 0.07;
+    --brass-intensity: 0.4;        /* Phase 3 scroll-driven */
+  }
+
+  /* ─── Theme attribute selectors (match layout.tsx data-theme) ─── */
+  [data-theme='cold'] {
+    --bg: var(--steel);
+    --fg: var(--parchment);
+    --fg-muted: rgb(var(--fg) / 0.68);
+    --fg-quiet: rgb(var(--fg) / 0.42);
+    --rule: rgb(var(--fg) / 0.12);
+    --rule-strong: rgb(var(--fg) / 0.22);
+    --grain-opacity: 0.07;
+    color-scheme: dark;
+  }
+
+  [data-theme='warm'] {
+    --bg: var(--parchment);
+    --fg: var(--bronze);
+    --fg-muted: rgb(var(--fg) / 0.68);
+    --fg-quiet: rgb(var(--fg) / 0.42);
+    --rule: rgb(var(--fg) / 0.12);
+    --rule-strong: rgb(var(--fg) / 0.22);
+    --grain-opacity: 0.05;
+    color-scheme: light;
+  }
+
+  [data-theme='bridge'] {
+    --bg: var(--steel);
+    --fg: var(--parchment);
+    --fg-muted: rgb(var(--fg) / 0.68);
+    --fg-quiet: rgb(var(--fg) / 0.42);
+    --rule: rgb(var(--fg) / 0.12);
+    --rule-strong: rgb(var(--fg) / 0.22);
+    --grain-opacity: 0.07;
+    color-scheme: dark;
+  }
+
+  /* ─── Base resets + typography defaults ─── */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark light;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    transition:
+      background-color 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-x: hidden;
+  }
+
+  /* Selection — brass on whichever bg is current. */
+  ::selection {
+    background-color: rgb(var(--brass));
+    color: rgb(var(--steel));
+  }
+
+  /* Focus rings — brass, never browser-default blue. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--brass));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ─── Reduced motion override ─── */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ─── Custom cursor (Phase 5 wire-up) ─── */
+  @media (hover: hover) and (pointer: fine) {
+    body[data-cursor='custom'] {
+      cursor: none;
+    }
+    body[data-cursor='custom'] * {
+      cursor: none !important;
+    }
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+ * COMPONENT LAYER — reusable design primitives
+ * Used heavily across Nav, Footer, PageHeader, scenes.
+ * ══════════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ─── Containers ─────────────────────────────────────────────── */
+
+  /**
+   * container-edge — full-bleed-aware page container.
+   * Used by Nav, Footer, PageHeader, scene wrappers. The gutter is
+   * fluid (1.25rem → 3rem) so content breathes on every viewport.
+   */
+  .container-edge {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    max-width: 90rem;
+  }
+
+  /* container-tight — narrower variant for prose blocks */
+  .container-tight {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    max-width: 76rem;
+  }
+
+  /* ─── Section rhythm ─────────────────────────────────────────── */
+
+  /**
+   * py-section — generous macro whitespace per the brief's 80/20 motion
+   * rule. Sections breathe at ≥30% of content height.
+   */
+  .py-section {
+    padding-block: clamp(4rem, 10vw, 8rem);
+  }
+
+  /* ─── Editorial rules ────────────────────────────────────────── */
+
+  /** Horizontal hairline rule using current fg at low alpha. */
+  .rule-h {
+    height: 1px;
+    width: 100%;
+    background-color: var(--rule);
+  }
+
+  /** Hairline border using the current fg color at low alpha. */
+  .border-hairline {
+    border-color: var(--rule);
+  }
+
+  /* ─── Typography utilities ───────────────────────────────────── */
+
+  /**
+   * micro-label — the all-caps Geist Mono label that runs throughout
+   * the design. Eyebrow text, section markers, footer headers.
+   */
+  .micro-label {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-quiet);
+  }
+  .micro-label--brass {
+    color: rgb(var(--brass));
+  }
+
+  /* ─── Links ──────────────────────────────────────────────────── */
+
+  /**
+   * link-brass — refined inline link with a brass underline grow.
+   * Used in body copy for outbound + structural links.
+   */
+  .link-brass {
+    color: inherit;
+    background-image: linear-gradient(rgb(var(--brass)), rgb(var(--brass)));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition:
+      color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-size 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-brass:hover,
+  .link-brass:focus-visible {
+    color: rgb(var(--brass));
+    background-size: 100% 2px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+ * UTILITY LAYER — opt-in font + glow helpers
+ * ══════════════════════════════════════════════════════════════════ */
+@layer utilities {
+
+  /* ─── Hero pin height ──────────────────────────────────────────
+   * Use small-viewport-height (svh) so mobile Safari's URL bar
+   * doesn't crop the bottom of the pinned hero. Falls back to vh
+   * on older browsers without svh support. */
+  .h-hero {
+    height: 100vh;       /* fallback */
+    height: 100svh;      /* small viewport — accounts for URL bar */
+  }
+
+  /* ─── Font utilities (Fraunces variable axes) ────────────────── */
+
+  .font-display {
+    font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 0;
+    letter-spacing: -0.025em;
+  }
+
+  /** Softer optical for editorial body display on the warm side. */
+  .font-display-soft {
+    font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+    font-variation-settings: 'opsz' 96, 'SOFT' 80;
+    letter-spacing: -0.018em;
+  }
+
+  /* ─── Body display sizes (large prose, captions) ─────────────── */
+
+  /** text-body-xl — used for hero kickers and page intro paragraphs. */
+  .text-body-xl {
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+
+  /* ─── Atmosphere helpers ─────────────────────────────────────── */
+
+  /**
+   * brass-glow — radial backlight behind hero typography. Intensity is
+   * driven by --brass-intensity (Phase 3 scroll progress).
+   */
+  .brass-glow {
+    background-image: radial-gradient(
+      ellipse 80% 60% at 50% 50%,
+      rgb(var(--brass) / calc(var(--brass-intensity) * 0.4)) 0%,
+      transparent 70%
+    );
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+ * MOTION KEYFRAMES — cinematic easing
+ * Phase 3+ uses these via Tailwind animation classes (configured in
+ * tailwind.config.ts) for the hero entrance and scroll-driven moments.
+ * ══════════════════════════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes breath {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
