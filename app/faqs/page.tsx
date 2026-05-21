@@ -22,6 +22,8 @@ const HEADER = {
   eyebrow: 'Pre-threshold · For the man',
   index: '02',
   title: 'Questions, answered.',
+  kicker:
+    "Common questions, plain answers. If yours isn't here, reach out.",
 };
 
 // EDIT HERE: Section labels (the four FAQ categories from data/faqs.ts)
@@ -57,6 +59,7 @@ export default function FaqsPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       <section className="container-edge pb-section">
@@ -65,7 +68,6 @@ export default function FaqsPage() {
         {hasAny ? (
           <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
             <div className="md:col-span-3">
-              <p className="micro-label micro-label--brass">FAQ</p>
             </div>
 
             <div className="md:col-span-9 space-y-20">
@@ -113,7 +115,6 @@ export default function FaqsPage() {
         <div className="rule-h mb-12" />
         <div className="grid gap-8 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-3">
-            <p className="micro-label">Still wondering?</p>
           </div>
           <div className="md:col-span-9">
             <p

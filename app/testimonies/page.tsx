@@ -22,6 +22,8 @@ const HEADER = {
   eyebrow: 'Past the threshold',
   index: '03',
   title: 'From prison to purpose.',
+  kicker:
+    'These men have done the work — recovery, discipleship, life skills, faith. Their stories are why we keep building. Their full names are here, with their consent.',
 };
 
 // EDIT HERE: Video testimonies — YouTube IDs only (the bit after v=).
@@ -55,16 +57,13 @@ export default function TestimoniesPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       {/* ─── Video testimonies ────────────────────────────────────── */}
       {VIDEO_TESTIMONIES.length > 0 && (
         <section className="container-edge pb-section">
           <div className="rule-h mb-16" />
-          <p className="micro-label micro-label--brass mb-12">
-            Watch their stories
-          </p>
-
           <ul className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-16">
             {VIDEO_TESTIMONIES.map((video) => (
               <li key={video.id}>
@@ -101,8 +100,6 @@ export default function TestimoniesPage() {
       {/* ─── Written testimonies ──────────────────────────────────── */}
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
-        <p className="micro-label micro-label--brass mb-12">In their own words</p>
-
         {TESTIMONIES.length === 0 ? (
           <div className="border border-dashed border-hairline px-6 py-16 text-center">
             <p
@@ -138,7 +135,6 @@ export default function TestimoniesPage() {
         <div className="rule-h mb-12" />
         <div className="grid gap-10 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-5">
-            <p className="micro-label micro-label--brass mb-6">Your turn</p>
             <p
               className="font-display text-balance text-fg"
               style={{

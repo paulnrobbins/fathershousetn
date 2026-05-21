@@ -21,6 +21,8 @@ const HEADER = {
   eyebrow: 'Bridge · For everyone',
   index: '07',
   title: 'Talk with us.',
+  kicker:
+    'For questions about the program, partnership, donations, or to apply — call, email, or write. Real people answer.',
 };
 
 export default function ContactUsPage() {
@@ -30,6 +32,7 @@ export default function ContactUsPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       <section className="container-edge pb-section">
@@ -38,7 +41,6 @@ export default function ContactUsPage() {
         <div className="grid gap-12 md:grid-cols-3 md:gap-x-10">
           {/* ─── Email ─────────────────────────────────────────────── */}
           <div>
-            <p className="micro-label mb-4">Email</p>
             <a
               href={`mailto:${CONTACT.email}`}
               className="link-brass font-display break-all text-fg"
@@ -54,7 +56,6 @@ export default function ContactUsPage() {
 
           {/* ─── Phone ─────────────────────────────────────────────── */}
           <div>
-            <p className="micro-label mb-4">Phone</p>
             <a
               href={`tel:${CONTACT.phoneTel}`}
               className="link-brass font-display text-fg"
@@ -70,7 +71,6 @@ export default function ContactUsPage() {
 
           {/* ─── Mail ──────────────────────────────────────────────── */}
           <div>
-            <p className="micro-label mb-4">Mail</p>
             <address
               className="font-display not-italic text-fg"
               style={{

@@ -29,7 +29,7 @@ import { getFeaturedPhotos } from '@/data/photos';
 
 // EDIT HERE: Scene 06 — THE LIFE (events + photo grid)
 const SCENE_06 = {
-  eyebrow: 'The Life · 06',
+  eyebrow: 'The Life',
   framing: 'The program is alive.',
   subFraming: 'See what God is doing.',
   eventsLabel: 'Upcoming',
@@ -119,35 +119,29 @@ export function TheLife() {
     >
       <div className="container-edge">
         {/* Section header */}
-        <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{SCENE_06.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
-            <h2
-              className="font-display text-balance text-fg"
-              style={{
-                fontSize: 'clamp(2.5rem, 7vw, 4.75rem)',
-                lineHeight: 0.98,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              {SCENE_06.framing}
-            </h2>
-            <p
-              className="mt-6 max-w-xl text-balance text-body-xl"
-              style={{ color: 'var(--fg-muted)' }}
-            >
-              {SCENE_06.subFraming}
-            </p>
-          </div>
+        <div>
+          <h2
+            className="font-display text-balance text-fg"
+            style={{
+              fontSize: 'clamp(2.5rem, 7vw, 4.75rem)',
+              lineHeight: 0.98,
+              letterSpacing: '-0.03em',
+            }}
+          >
+            {SCENE_06.framing}
+          </h2>
+          <p
+            className="mt-6 max-w-xl text-balance text-body-xl"
+            style={{ color: 'var(--fg-muted)' }}
+          >
+            {SCENE_06.subFraming}
+          </p>
         </div>
 
         {/* Events sub-section */}
         {events.length > 0 && (
           <div className="life-events mt-16 md:mt-24">
             <div className="rule-h mb-10" />
-            <p className="micro-label mb-8">{SCENE_06.eventsLabel}</p>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {events.map((e, i) => (
@@ -161,7 +155,6 @@ export function TheLife() {
         {photos.length > 0 && (
           <div className="life-photos mt-24 md:mt-32">
             <div className="rule-h mb-10" />
-            <p className="micro-label mb-10">{SCENE_06.photosLabel}</p>
 
             {/*
               Asymmetric photo grid. First photo is wide (col-span-7),

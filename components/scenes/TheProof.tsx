@@ -24,7 +24,7 @@ import { getFeaturedTestimonies } from '@/data/testimonies';
 
 // EDIT HERE: Scene 05 — THE PROOF (testimony billboards)
 const SCENE_05 = {
-  eyebrow: 'The Proof · 05',
+  eyebrow: 'The Proof',
   framing: 'Testimonies',
   ctaLabel: 'Read all testimonies',
   ctaHref: '/testimonies',
@@ -100,22 +100,17 @@ export function TheProof() {
     >
       <div className="container-edge">
         {/* Section header */}
-        <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{SCENE_05.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
-            <h2
-              className="font-display text-balance text-fg"
-              style={{
-                fontSize: 'clamp(2.5rem, 7vw, 4.75rem)',
-                lineHeight: 0.98,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              {SCENE_05.framing}
-            </h2>
-          </div>
+        <div>
+          <h2
+            className="font-display text-balance text-fg"
+            style={{
+              fontSize: 'clamp(2.5rem, 7vw, 4.75rem)',
+              lineHeight: 0.98,
+              letterSpacing: '-0.03em',
+            }}
+          >
+            {SCENE_05.framing}
+          </h2>
         </div>
 
         {/* Billboards — generous negative space around them */}

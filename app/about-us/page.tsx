@@ -21,6 +21,8 @@ const HEADER = {
   eyebrow: 'Past the threshold',
   index: '05',
   title: 'Who we are.',
+  kicker:
+    "A Christ-centered recovery home in Rhea County, Tennessee — born of Reformers Unanimous, led by faith, and built for lasting change in the men we serve and the community we share.",
 };
 
 // EDIT HERE: Mission section (kept verbatim per Phase 1 sacred-cow lock)
@@ -133,16 +135,14 @@ export default function AboutUsPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       {/* ─── Mission ──────────────────────────────────────────────── */}
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{MISSION.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
+                    <div className="">
             <h2
               className="font-display text-balance text-fg"
               style={{
@@ -153,6 +153,11 @@ export default function AboutUsPage() {
             >
               {MISSION.headline}
             </h2>
+            <div className="mt-10 max-w-2xl space-y-6 text-pretty leading-relaxed" style={{ fontSize: '1.125rem', color: 'var(--fg-muted)' }}>
+              {MISSION.body.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -161,10 +166,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{RU_PARTNERSHIP.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
+                    <div className="">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -175,6 +177,12 @@ export default function AboutUsPage() {
             >
               {RU_PARTNERSHIP.headline}
             </h2>
+            <p
+              className="mt-8 max-w-2xl text-pretty leading-relaxed"
+              style={{ fontSize: '1.0625rem', color: 'var(--fg-muted)' }}
+            >
+              {RU_PARTNERSHIP.body}
+            </p>
 
             {/* Stat — large editorial figure */}
             <div className="mt-12 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-t border-hairline pt-8">
@@ -204,18 +212,9 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">The way</p>
-          </div>
-          <div className="md:col-span-9 grid gap-10 sm:grid-cols-3 sm:gap-x-8">
+                    <div className="grid gap-10 sm:grid-cols-3 sm:gap-x-8">
             {PILLARS.map((pillar) => (
               <div key={pillar.n}>
-                <p
-                  className="font-mono mb-4 text-[0.6875rem] uppercase tracking-[0.22em]"
-                  style={{ color: 'rgb(var(--brass))' }}
-                >
-                  {pillar.n}
-                </p>
                 <h3
                   className="font-display text-fg"
                   style={{
@@ -226,6 +225,12 @@ export default function AboutUsPage() {
                 >
                   {pillar.label}
                 </h3>
+                <p
+                  className="mt-3 text-pretty text-sm leading-relaxed"
+                  style={{ color: 'var(--fg-muted)' }}
+                >
+                  {pillar.body}
+                </p>
               </div>
             ))}
           </div>
@@ -236,10 +241,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{PLACE.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
+                    <div className="">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -269,7 +271,13 @@ export default function AboutUsPage() {
               </figcaption>
             </figure>
 
-            <div className="mt-10">
+            <p
+              className="mt-10 max-w-2xl text-pretty leading-relaxed"
+              style={{ fontSize: '1.0625rem', color: 'var(--fg-muted)' }}
+            >
+              {PLACE.body}
+            </p>
+            <div className="mt-8">
               <Link
                 href={PLACE.cta.href}
                 className="link-brass font-mono text-[0.6875rem] uppercase tracking-[0.18em]"
@@ -286,10 +294,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{LEADERSHIP.eyebrow}</p>
-          </div>
-          <div className="md:col-span-9">
+                    <div className="">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -303,7 +308,6 @@ export default function AboutUsPage() {
 
             {/* Officers — Board of Directors */}
             <div className="mt-12">
-              <p className="micro-label mb-6">Board of Directors</p>
               <ul className="space-y-4">
                 {LEADERSHIP.officers.map((o) => (
                   <li
@@ -334,7 +338,6 @@ export default function AboutUsPage() {
 
             {/* Board Members */}
             <div className="mt-12">
-              <p className="micro-label mb-6">Board Members</p>
               <ul className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                 {LEADERSHIP.boardMembers.map((name) => (
                   <li
@@ -360,12 +363,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-          <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">
-              {STATEMENT_OF_FAITH.eyebrow}
-            </p>
-          </div>
-          <div className="md:col-span-9">
+                    <div className="">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -378,18 +376,12 @@ export default function AboutUsPage() {
             </h2>
 
             <div className="mt-12 space-y-12">
-              {STATEMENT_OF_FAITH.articles.map((article, i) => (
+              {STATEMENT_OF_FAITH.articles.map((article) => (
                 <article
                   key={article.heading}
                   className="border-t border-hairline pt-8"
                 >
-                  <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                    <span
-                      className="font-mono text-[0.6875rem] uppercase tracking-[0.22em]"
-                      style={{ color: 'rgb(var(--brass))' }}
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                  <div>
                     <h3
                       className="font-display text-fg"
                       style={{

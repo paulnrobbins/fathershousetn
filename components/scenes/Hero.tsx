@@ -26,7 +26,7 @@ import { EXTERNAL } from '@/data/nav';
 
 // EDIT HERE: Scene 02 — THE INVITATION (mission framing + dual CTAs)
 const SCENE_02 = {
-  eyebrow: 'The Invitation · 02',
+  eyebrow: 'The Invitation',
   framing:
     'To welcome men released from jail, offering them a safe and supportive home where they can receive care, guidance, training, drug recovery and the gospel. Our goal is to prepare them to reenter the community as productive citizens, dedicated to living a life that honors God.',
   primaryCta: {
@@ -43,7 +43,7 @@ const SCENE_02 = {
 
 // EDIT HERE: Scene 03 — THE NEED (Rhea County drug-arrest data art)
 const SCENE_03 = {
-  eyebrow: 'The Need · 03',
+  eyebrow: 'The Need',
   context: 'Rhea County · 2021',
   statValue: '1,279.96',
   statLabel: 'Drug arrests per 100,000 residents',
@@ -55,7 +55,7 @@ const SCENE_03 = {
 
 // EDIT HERE: Scene 04 — THE WAY (three pillars + 82% sub-figure)
 const SCENE_04 = {
-  eyebrow: 'The Way · 04',
+  eyebrow: 'The Way',
   framing: 'Christ-centered recovery, real life skills, and the gospel.',
   pillars: [
     {
@@ -371,28 +371,16 @@ function Scene02Invitation() {
         <Link
           href={SCENE_02.primaryCta.href}
           className={clsx(CTA_OUTLINE, 'w-full sm:w-auto sm:min-w-[15rem]')}
-          aria-label={`${SCENE_02.primaryCta.label} — ${SCENE_02.primaryCta.audience.toLowerCase()}`}
         >
-          <span className="flex flex-col items-start gap-1">
-            <span className="text-[0.5625rem] tracking-[0.22em] opacity-60 transition-opacity duration-300 group-hover/cta:opacity-100">
-              {SCENE_02.primaryCta.audience}
-            </span>
-            <span>{SCENE_02.primaryCta.label}</span>
-          </span>
+          <span>{SCENE_02.primaryCta.label}</span>
           <span aria-hidden="true" className="text-base leading-none">→</span>
         </Link>
 
         <Link
           href={SCENE_02.secondaryCta.href}
           className={clsx(CTA_FILLED, 'w-full sm:w-auto sm:min-w-[15rem]')}
-          aria-label={`${SCENE_02.secondaryCta.label} — ${SCENE_02.secondaryCta.audience.toLowerCase()}`}
         >
-          <span className="flex flex-col items-start gap-1">
-            <span className="text-[0.5625rem] tracking-[0.22em] opacity-60 transition-opacity duration-300 group-hover/cta:opacity-100">
-              {SCENE_02.secondaryCta.audience}
-            </span>
-            <span>{SCENE_02.secondaryCta.label}</span>
-          </span>
+          <span>{SCENE_02.secondaryCta.label}</span>
           <span aria-hidden="true" className="text-base leading-none">→</span>
         </Link>
       </div>
@@ -404,8 +392,6 @@ function Scene02Invitation() {
 function Scene03TheNeed() {
   return (
     <>
-      <p className="micro-label micro-label--brass mb-4">{SCENE_03.context}</p>
-
       <h2
         className="font-display text-balance text-fg"
         style={{
@@ -461,7 +447,6 @@ function Scene04TheWay() {
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8 md:mt-10 md:gap-10">
         {SCENE_04.pillars.map((pillar) => (
           <div key={pillar.number} className="flex flex-col">
-            <p className="micro-label micro-label--brass mb-3">{pillar.number}</p>
             <h3
               className="font-display text-fg"
               style={{
@@ -472,6 +457,12 @@ function Scene04TheWay() {
             >
               {pillar.name}
             </h3>
+            <p
+              className="mt-2 text-sm leading-relaxed text-balance"
+              style={{ color: 'var(--fg-muted)' }}
+            >
+              {pillar.copy}
+            </p>
           </div>
         ))}
       </div>
@@ -608,10 +599,9 @@ interface ReducedMotionSectionProps {
   children: React.ReactNode;
 }
 
-function ReducedMotionSection({ eyebrow, children }: ReducedMotionSectionProps) {
+function ReducedMotionSection({ children }: ReducedMotionSectionProps) {
   return (
     <section>
-      <p className="micro-label micro-label--brass mb-6">{eyebrow}</p>
       {children}
     </section>
   );
@@ -684,7 +674,6 @@ function SceneBlock({ cssVar, eyebrow, children }: SceneBlockProps) {
         }}
       />
       <div className="container-edge relative">
-        <p className="micro-label micro-label--brass mb-6">{eyebrow}</p>
         {children}
       </div>
     </div>

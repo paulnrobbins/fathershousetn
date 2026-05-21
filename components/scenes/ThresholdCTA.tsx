@@ -27,7 +27,7 @@ import { SOCIAL } from '@/data/nav';
 
 // EDIT HERE: Scene 07 — THE THRESHOLD FOR YOU (final dual CTA)
 const SCENE_07 = {
-  eyebrow: 'The Threshold For You · 07',
+  eyebrow: 'The Threshold For You',
   headline: 'Your turn.',
   framing:
     'Two paths. Same door. Step through, or hold it open for the next man — both are the same call answered.',
@@ -148,11 +148,6 @@ export function ThresholdCTA() {
       aria-label="The threshold for you — final invitation"
     >
       <div className="container-edge">
-        {/* Section eyebrow */}
-        <p className="threshold-fade micro-label micro-label--brass mb-10 md:mb-12">
-          {SCENE_07.eyebrow}
-        </p>
-
         {/* Editorial composition — door icon left, content right */}
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
           {/* Iron door icon (small, intimate) */}
@@ -187,12 +182,6 @@ export function ThresholdCTA() {
             <div className="threshold-fade mt-14 grid gap-12 md:mt-16 md:grid-cols-2 md:gap-10">
               {/* For the man */}
               <div>
-                <p
-                  className="font-mono mb-6 text-[0.625rem] uppercase tracking-[0.22em]"
-                  style={{ color: 'var(--fg-quiet)' }}
-                >
-                  {SCENE_07.applicant.audience}
-                </p>
                 <Magnetic strength={20} fieldRadius={120}>
                   <Link
                     href={SCENE_07.applicant.href}
@@ -211,24 +200,10 @@ export function ThresholdCTA() {
                     </span>
                   </Link>
                 </Magnetic>
-                <p
-                  className="mt-4 max-w-xs text-sm leading-relaxed"
-                  style={{ color: 'var(--fg-muted)' }}
-                >
-                  {SCENE_07.applicant.micro}
-                </p>
               </div>
 
               {/* For the partner — primary + secondary + tertiary */}
               <div>
-                <p
-                  className="font-mono mb-6 text-[0.625rem] uppercase tracking-[0.22em]"
-                  style={{ color: 'var(--fg-quiet)' }}
-                >
-                  {SCENE_07.partner.audience}
-                </p>
-
-                {/* Primary — Donate */}
                 <Magnetic
                   strength={22}
                   fieldRadius={140}
@@ -255,12 +230,6 @@ export function ThresholdCTA() {
                     </span>
                   </Link>
                 </Magnetic>
-                <p
-                  className="mt-4 max-w-xs text-sm leading-relaxed"
-                  style={{ color: 'var(--fg-muted)' }}
-                >
-                  {SCENE_07.partner.primary.micro}
-                </p>
 
                 {/* Secondary — Newsletter */}
                 <div className="mt-8">

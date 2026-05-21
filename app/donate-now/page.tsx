@@ -26,6 +26,8 @@ const HEADER = {
   eyebrow: 'Past the threshold · Donate now',
   index: '08',
   title: 'Give to the work.',
+  kicker:
+    'Beds, food, training, accountability. 100% of every dollar reaches the men. Zeffy charges nothing on nonprofit donations.',
 };
 
 // EDIT HERE: Trust framing copy
@@ -41,13 +43,12 @@ export default function DonateNowPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       {/* ─── Zeffy donation iframe ─────────────────────────────────── */}
       <section className="container-edge pb-section">
         <div className="rule-h mb-12" />
-        <p className="micro-label micro-label--brass mb-10">Donate</p>
-
         <ZeffyEmbed
           src={EXTERNAL.zeffyDonate}
           title="Donate to Our Father's House"
@@ -62,12 +63,22 @@ export default function DonateNowPage() {
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">{TRUST.eyebrow}</p>
           </div>
           <div className="md:col-span-9">
-            <div className="mt-0 grid gap-6 sm:grid-cols-2">
+            <p
+              className="font-display-soft text-balance text-fg"
+              style={{
+                fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                lineHeight: 1.2,
+                letterSpacing: '-0.02em',
+                maxWidth: '40rem',
+              }}
+            >
+              {TRUST.body}
+            </p>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
               <div className="border border-hairline p-6">
-                <p className="micro-label mb-3">By mail</p>
                 <p
                   className="font-display text-fg"
                   style={{
@@ -89,7 +100,6 @@ export default function DonateNowPage() {
                 </p>
               </div>
               <div className="border border-hairline p-6">
-                <p className="micro-label mb-3">Other ways to give</p>
                 <ul className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                   <li>
                     <Link href="/get-involved" className="link-brass">

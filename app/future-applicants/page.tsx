@@ -23,6 +23,8 @@ const HEADER = {
   eyebrow: 'Pre-threshold · For the man',
   index: '01',
   title: "If you're ready, so are we.",
+  kicker:
+    'What we look for. What you can expect. How to take the first step.',
 };
 
 // EDIT HERE: Eligibility + expectations columns
@@ -66,6 +68,7 @@ export default function FutureApplicantsPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       {/* ─── Eligibility + expectations ───────────────────────────── */}
@@ -74,7 +77,6 @@ export default function FutureApplicantsPage() {
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">The work</p>
           </div>
           <div className="md:col-span-9 grid gap-12 md:grid-cols-2 md:gap-x-10">
             <Column data={COLUMNS.whoWeServe} />
@@ -89,7 +91,6 @@ export default function FutureApplicantsPage() {
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-3">
-            <p className="micro-label micro-label--brass">The next step</p>
           </div>
           <div className="md:col-span-9">
             <h2
@@ -107,14 +108,8 @@ export default function FutureApplicantsPage() {
               {REACH_OUT.points.map((p, i) => (
                 <li
                   key={i}
-                  className="flex gap-5 border-b border-hairline pb-4"
+                  className="border-b border-hairline pb-4"
                 >
-                  <span
-                    className="font-mono mt-1 text-[0.6875rem] uppercase tracking-[0.22em]"
-                    style={{ color: 'rgb(var(--brass))' }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
                   <span
                     className="text-pretty leading-relaxed"
                     style={{ fontSize: 'clamp(1rem, 1.4vw, 1.125rem)', color: 'var(--fg)' }}
@@ -137,7 +132,6 @@ export default function FutureApplicantsPage() {
             href={`tel:${CONTACT.phoneTel}`}
             className="group block border border-hairline p-8 transition-colors duration-300 hover:border-brass focus-visible:border-brass"
           >
-            <p className="micro-label mb-4">Call</p>
             <p
               className="font-display text-fg"
               style={{
@@ -158,7 +152,6 @@ export default function FutureApplicantsPage() {
             href={`mailto:${CONTACT.email}`}
             className="group block border border-hairline p-8 transition-colors duration-300 hover:border-brass focus-visible:border-brass"
           >
-            <p className="micro-label mb-4">Email</p>
             <p
               className="font-display break-all text-fg"
               style={{
@@ -210,7 +203,6 @@ interface ColumnData {
 function Column({ data }: { data: ColumnData }) {
   return (
     <div>
-      <p className="micro-label mb-6">{data.label}</p>
       <ul className="space-y-4">
         {data.points.map((p, i) => (
           <li

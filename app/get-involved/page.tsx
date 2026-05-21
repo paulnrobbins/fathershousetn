@@ -20,6 +20,8 @@ const HEADER = {
   eyebrow: 'Past the threshold · Donate now',
   index: '04',
   title: 'How to walk alongside us.',
+  kicker:
+    "Pray, give, mentor, hire, host, partner. The men of Our Father's House are not on an island, and neither are we. There are six ways in.",
 };
 
 // EDIT HERE: The six involvement paths
@@ -69,25 +71,18 @@ export default function GetInvolvedPage() {
         eyebrow={HEADER.eyebrow}
         index={HEADER.index}
         title={HEADER.title}
+        kicker={HEADER.kicker}
       />
 
       {/* ─── Six involvement paths ────────────────────────────────── */}
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
-        <p className="micro-label micro-label--brass mb-12">Six ways in</p>
-
         <ul className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {PATHS.map((path) => (
             <li
               key={path.n}
               className="border-t border-hairline pt-6 transition-colors duration-300 hover:border-brass focus-within:border-brass"
             >
-              <p
-                className="font-mono mb-4 text-[0.6875rem] uppercase tracking-[0.22em]"
-                style={{ color: 'rgb(var(--brass))' }}
-              >
-                {path.n}
-              </p>
               <h3
                 className="font-display text-fg"
                 style={{
@@ -98,6 +93,12 @@ export default function GetInvolvedPage() {
               >
                 {path.label}
               </h3>
+              <p
+                className="mt-4 text-pretty leading-relaxed"
+                style={{ fontSize: '1rem', color: 'var(--fg-muted)' }}
+              >
+                {path.body}
+              </p>
               <div className="mt-6">
                 {path.cta.external ? (
                   <a
@@ -129,7 +130,6 @@ export default function GetInvolvedPage() {
         <div className="rule-h mb-12" />
         <div className="grid gap-8 md:grid-cols-12 md:gap-x-10">
           <div className="md:col-span-3">
-            <p className="micro-label">Talk with us</p>
           </div>
           <div className="md:col-span-9 flex flex-wrap gap-x-10 gap-y-4">
             <a

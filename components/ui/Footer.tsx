@@ -19,7 +19,6 @@ export function Footer() {
       <div className="container-edge py-section">
         {/* Closing statement */}
         <div className="mb-16 max-w-3xl">
-          <p className="micro-label micro-label--brass mb-6">501(c)(3) — Rhea County, Tennessee</p>
           <p className="font-display text-display-sm text-balance text-fg">
             From prison to purpose, by the grace of God and the support of His people.
           </p>
@@ -31,7 +30,6 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-8">
           {/* Contact */}
           <div className="md:col-span-4">
-            <p className="micro-label mb-5">Contact</p>
             <address className="not-italic space-y-1.5 text-base text-[var(--fg-muted)]">
               <p className="text-fg">Our Father&rsquo;s House Inc.</p>
               <p>PO Box 7</p>
@@ -51,7 +49,6 @@ export function Footer() {
 
           {/* Sitemap */}
           <nav aria-label="Footer" className="md:col-span-4">
-            <p className="micro-label mb-5">Sitemap</p>
             <ul className="space-y-2.5">
               {mainNavItems.map((item) => (
                 <li key={item.href}>
@@ -68,7 +65,6 @@ export function Footer() {
 
           {/* Follow — social media */}
           <div className="md:col-span-4">
-            <p className="micro-label mb-5">Follow</p>
             <p className="mb-5 text-base text-[var(--fg-muted)]">
               Stories from the house, upcoming events, and ways to support our work.
             </p>
