@@ -142,7 +142,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="">
+                    <div className="md:col-start-4 md:col-span-9">
             <h2
               className="font-display text-balance text-fg"
               style={{
@@ -166,7 +166,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="">
+                    <div className="md:col-start-4 md:col-span-9">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -212,7 +212,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="grid gap-10 sm:grid-cols-3 sm:gap-x-8">
+                    <div className="md:col-start-4 md:col-span-9 grid gap-10 sm:grid-cols-3 sm:gap-x-8">
             {PILLARS.map((pillar) => (
               <div key={pillar.n}>
                 <h3
@@ -241,7 +241,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="">
+                    <div className="md:col-start-4 md:col-span-9">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -294,7 +294,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="">
+                    <div className="md:col-start-4 md:col-span-9">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
@@ -363,7 +363,7 @@ export default function AboutUsPage() {
       <section className="container-edge pb-section">
         <div className="rule-h mb-16" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-10">
-                    <div className="">
+                    <div className="md:col-start-4 md:col-span-9">
             <h2
               className="font-display-soft text-balance text-fg"
               style={{
