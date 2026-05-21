@@ -17,11 +17,21 @@ export function Footer() {
   return (
     <footer className="relative border-t border-[var(--rule)] bg-bg text-fg">
       <div className="container-edge py-section">
-        {/* Closing statement */}
-        <div className="mb-16 max-w-3xl">
-          <p className="font-display text-display-sm text-balance text-fg">
-            From prison to purpose, by the grace of God and the support of His people.
-          </p>
+        {/* Logo + closing statement */}
+        <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logos/logo-navy.png"
+            alt="Our Father's House logo"
+            width={88}
+            height={120}
+            className="block h-20 w-auto flex-none md:h-28"
+          />
+          <div className="max-w-3xl">
+            <p className="font-display text-display-sm text-balance text-fg">
+              From prison to purpose, by the grace of God and the support of His people.
+            </p>
+          </div>
         </div>
 
         <div className="rule-h mb-16" aria-hidden="true" />

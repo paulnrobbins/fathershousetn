@@ -61,23 +61,22 @@ export function Nav() {
       style={{ zIndex: 'var(--z-nav)' }}
     >
       <div className="container-edge relative flex items-center justify-between py-4 md:py-5">
-        {/* Wordmark */}
+        {/* Wordmark — logo + text */}
         <Link
           href="/"
-          className="relative z-10 flex items-baseline gap-2 font-display text-lg leading-none tracking-tight md:text-xl"
+          className="relative z-10 flex items-center gap-2.5 font-display text-lg leading-none tracking-tight md:gap-3 md:text-xl"
           aria-label="Our Father's House — home"
         >
-          <span className="text-fg">Our Father&rsquo;s House</span>
-          <span aria-hidden="true" className="hidden text-brass md:inline">
-            —
-          </span>
-          <span
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logos/logo-navy.png"
+            alt=""
             aria-hidden="true"
-            className="hidden font-mono text-[0.625rem] uppercase tracking-[0.2em] md:inline"
-            style={{ color: 'var(--fg-quiet)' }}
-          >
-            TN
-          </span>
+            width={28}
+            height={38}
+            className="block h-7 w-auto md:h-9"
+          />
+          <span className="text-fg">Our Father&rsquo;s House</span>
         </Link>
 
         {/* Desktop nav */}
