@@ -81,7 +81,7 @@ export function DoorScene({
           uTransition: { value: 0 },
           uCold: { value: new THREE.Color(0x0e0f12) },  // steel
           uWarm: { value: new THREE.Color(0x6a4d24) },  // deep brass shadow
-          uBrass: { value: new THREE.Color(0xc9a55b) }, // brass
+          uBrass: { value: new THREE.Color(0x87c5e2) }, // brass
         },
         depthWrite: false,
       }),

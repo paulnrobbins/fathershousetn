@@ -21,7 +21,7 @@ function createIronMaterial(): THREE.ShaderMaterial {
       // Hex values from the brief, normalized to linear floats
       uIronDark: { value: new THREE.Color(0x18161a) },  // near-black bronze
       uIronMid:  { value: new THREE.Color(0x3a342e) },  // slightly warmer mid
-      uBrass:    { value: new THREE.Color(0xc9a55b) },  // brass — the constant
+      uBrass:    { value: new THREE.Color(0x87c5e2) },  // brass — the constant
     },
   });
 }

@@ -70,7 +70,7 @@ export const DustMotes = forwardRef<THREE.ShaderMaterial, DustMotesProps>(
               : 1,
           },
           uSize: { value: 60 },
-          uColor: { value: new THREE.Color(0xc9a55b) },
+          uColor: { value: new THREE.Color(0x87c5e2) },
         },
         transparent: true,
         depthWrite: false,

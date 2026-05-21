@@ -36,7 +36,7 @@ export function BackLight() {
   return (
     <mesh position={[0, 0, -3]}>
       <planeGeometry args={[24, 18]} />
-      <meshBasicMaterial color={0xc9a55b} toneMapped={false} />
+      <meshBasicMaterial color={0x87c5e2} toneMapped={false} />
     </mesh>
   );
 }
@@ -55,7 +55,7 @@ export const SeamGlow = forwardRef<THREE.ShaderMaterial, BrassSeamProps>(
           fragmentShader: brassSeamFragment,
           uniforms: {
             uIntensity: { value: intensity },
-            uColor: { value: new THREE.Color(0xc9a55b) },
+            uColor: { value: new THREE.Color(0x87c5e2) },
           },
           transparent: true,
           depthWrite: false,

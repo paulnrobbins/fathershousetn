@@ -87,10 +87,11 @@ const SCENE_04 = {
 
 /**
  * CTA_BASE — shared layout/typography for both Scene 02 buttons.
- * CTA_OUTLINE — Apply Now: dark steel fill so it reads against the
- *   brass-warm 3D backdrop. Reads as the structured/formal path.
- * CTA_FILLED — Stand With Us: outlined brass treatment lifted verbatim
- *   from Nav.tsx's Donate button. Reads as the warm invitation.
+ * CTA_OUTLINE + CTA_FILLED — both rendered as solid-navy buttons with
+ *   white (parchment) text inside, per Paul's direction. The previous
+ *   filled/outline distinction is collapsed into a single brand-button
+ *   treatment because the new navy-on-parchment world doesn't need a
+ *   secondary outline variant to read clearly.
  */
 const CTA_BASE = clsx(
   'group/cta inline-flex items-center justify-between gap-3 px-5 py-3',
@@ -100,14 +101,14 @@ const CTA_BASE = clsx(
 
 const CTA_OUTLINE = clsx(
   CTA_BASE,
-  'bg-steel text-brass border border-brass',
-  'hover:bg-brass hover:text-steel focus-visible:bg-brass focus-visible:text-steel'
+  'bg-brass text-parchment border border-brass',
+  'hover:opacity-85 focus-visible:opacity-85'
 );
 
 const CTA_FILLED = clsx(
   CTA_BASE,
-  'border border-brass text-brass',
-  'hover:bg-brass hover:text-bg focus-visible:bg-brass focus-visible:text-bg'
+  'bg-brass text-parchment border border-brass',
+  'hover:opacity-85 focus-visible:opacity-85'
 );
 
 /* ════════════════════════════════════════════════════════════════════
@@ -535,12 +536,12 @@ function DotGrid() {
         {dots.map((dotMul, i) => (
           <span
             key={i}
-            className="block rounded-full bg-brass"
+            className="block rounded-full bg-parchment"
             style={{
               aspectRatio: '1 / 1',
               // brass-intensity drives the glow; per-dot multiplier
               // adds quiet variance so the field looks alive
-              opacity: `calc((0.18 + var(--brass-intensity, 0.4) * 0.5) * ${dotMul.toFixed(3)})`,
+              opacity: `calc((0.35 + var(--brass-intensity, 0.4) * 0.5) * ${dotMul.toFixed(3)})`,
               transition: 'opacity 200ms cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           />
