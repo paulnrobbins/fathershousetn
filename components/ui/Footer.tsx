@@ -17,21 +17,25 @@ export function Footer() {
   return (
     <footer className="relative border-t border-[var(--rule)] bg-bg text-fg">
       <div className="container-edge py-section">
-        {/* Logo + closing statement */}
-        <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
+        {/* Logo + brand name — stacked + centered on mobile, side-by-side on desktop */}
+        <div className="mb-16 flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:gap-10 md:text-left">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logos/logo-navy.png"
             alt="Our Father's House logo"
-            width={88}
-            height={120}
-            className="block h-20 w-auto flex-none md:h-28"
+            className="block h-24 w-auto flex-none md:h-28"
+            style={{ aspectRatio: '249 / 343' }}
           />
-          <div className="max-w-3xl">
-            <p className="font-display text-display-sm text-balance text-fg">
-              From prison to purpose, by the grace of God and the support of His people.
-            </p>
-          </div>
+          <p
+            className="font-display text-balance text-fg"
+            style={{
+              fontSize: 'clamp(1.875rem, 4vw, 2.75rem)',
+              lineHeight: 1.05,
+              letterSpacing: '-0.025em',
+            }}
+          >
+            Our Father&rsquo;s House
+          </p>
         </div>
 
         <div className="rule-h mb-16" aria-hidden="true" />

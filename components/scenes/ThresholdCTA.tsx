@@ -30,7 +30,7 @@ const SCENE_07 = {
   eyebrow: 'The Threshold For You',
   headline: 'Your turn.',
   framing:
-    'Two paths. Same door. Step through, or hold it open for the next man — both are the same call answered.',
+    'Need help? Click Apply Now below or Donate Now to help fund our mission.',
   applicant: {
     audience: 'For the man',
     label: 'Apply now',

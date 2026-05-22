@@ -306,6 +306,17 @@ export function Hero() {
           {/* Overlay content layer */}
           <div className="container-edge relative z-10 flex h-full flex-col justify-end pb-20 md:pb-32">
             <SceneBlock cssVar="--scene-1" eyebrow="Welcome">
+              <p
+                className="font-display-soft mb-4 text-fg"
+                style={{
+                  fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+                  lineHeight: 1.1,
+                  letterSpacing: '-0.015em',
+                  color: 'rgb(var(--brass))',
+                }}
+              >
+                Our Father&rsquo;s House
+              </p>
               <h1 className="font-display text-display-md text-balance text-fg">
                 From prison to purpose.
               </h1>
@@ -356,6 +367,17 @@ function Scene02Invitation() {
   return (
     <>
       <p
+        className="font-display-soft mb-4"
+        style={{
+          fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+          lineHeight: 1.1,
+          letterSpacing: '-0.015em',
+          color: 'rgb(var(--brass))',
+        }}
+      >
+        Our Mission
+      </p>
+      <p
         className="font-display-soft text-balance"
         style={{
           fontSize: 'clamp(1.25rem, 3.4vw, 2.5rem)',
@@ -393,6 +415,17 @@ function Scene02Invitation() {
 function Scene03TheNeed() {
   return (
     <>
+      <p
+        className="font-display-soft mb-4"
+        style={{
+          fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+          lineHeight: 1.1,
+          letterSpacing: '-0.015em',
+          color: 'rgb(var(--brass))',
+        }}
+      >
+        Why us?
+      </p>
       <h2
         className="font-display text-balance text-fg"
         style={{
