@@ -464,6 +464,17 @@ function Scene04TheWay() {
   return (
     <>
       <p
+        className="font-display-soft mb-4"
+        style={{
+          fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+          lineHeight: 1.1,
+          letterSpacing: '-0.015em',
+          color: '#87C5E2',
+        }}
+      >
+        What we do
+      </p>
+      <p
         className="font-display-soft text-balance"
         style={{
           fontSize: 'clamp(1.5rem, 3.6vw, 2.5rem)',
