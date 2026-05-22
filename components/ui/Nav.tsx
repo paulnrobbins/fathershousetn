@@ -20,20 +20,11 @@ import { mainNavItems, donateItem } from '@/data/nav';
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   // Close menu on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
-
-  // Backdrop intensifies after the hero
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -51,12 +42,8 @@ export function Nav() {
   return (
     <header
       className={clsx(
-        'fixed inset-x-0 top-0 transition-all duration-500',
-        'before:absolute before:inset-0 before:transition-opacity before:duration-500',
-        'before:backdrop-blur-nav before:content-[""]',
-        scrolled
-          ? 'before:opacity-100 before:bg-bg/70'
-          : 'before:opacity-0 before:bg-bg/0'
+        'fixed inset-x-0 top-0',
+        'before:absolute before:inset-0 before:backdrop-blur-nav before:bg-bg/70 before:content-[""]'
       )}
       style={{ zIndex: 'var(--z-nav)' }}
     >

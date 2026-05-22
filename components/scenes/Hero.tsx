@@ -312,7 +312,7 @@ export function Hero() {
                   fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
                   lineHeight: 1.1,
                   letterSpacing: '-0.015em',
-                  color: 'rgb(var(--brass))',
+                  color: '#87C5E2',
                 }}
               >
                 Our Father&rsquo;s House
@@ -372,7 +372,7 @@ function Scene02Invitation() {
           fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
           lineHeight: 1.1,
           letterSpacing: '-0.015em',
-          color: 'rgb(var(--brass))',
+          color: '#87C5E2',
         }}
       >
         Our Mission
@@ -421,7 +421,7 @@ function Scene03TheNeed() {
           fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
           lineHeight: 1.1,
           letterSpacing: '-0.015em',
-          color: 'rgb(var(--brass))',
+          color: '#87C5E2',
         }}
       >
         Why us?
